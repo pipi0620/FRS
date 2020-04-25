@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>2.9</ProductVersion>
+    <ProjectGuid>65525b6f-8ae4-4fa1-a383-c8c793fbc724</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lab2</RootNamespace>
+    <AssemblyName>lab2</AssemblyName>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <Name>lab2</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRS\CRS.csproj">
+      <Name>CRS</Name>
+      <Project>{552e7025-9b8d-482b-b8b4-3b7911283dae}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>CRS</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\FRS\FRS.csproj">
+      <Name>FRS</Name>
+      <Project>{f2a062e9-221b-46a2-810d-752686013aeb}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>FRS</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\HRS\HRS.csproj">
+      <Name>HRS</Name>
+      <Project>{1d225e77-58d0-4ce3-997f-b4e9c5d03de1}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>HRS</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\PS\PS.csproj">
+      <Name>PS</Name>
+      <Project>{a453e303-a566-4b26-bacf-dbb4002b1b35}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>PS</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRole1\WebRole1.csproj">
+      <Name>WebRole1</Name>
+      <Project>{1e7895ae-f5b7-45c3-99fa-3cf154fbcf8d}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>WebRole1</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CRSContent\" />
+    <Folder Include="FRSContent\" />
+    <Folder Include="HRSContent\" />
+    <Folder Include="PSContent\" />
+    <Folder Include="WebRole1Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <DiagnosticsConfiguration Include="CRSContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="FRSContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="HRSContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="PSContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="WebRole1Content\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.9\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+</Project>
