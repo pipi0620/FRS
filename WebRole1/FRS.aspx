@@ -6,32 +6,31 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 435px">
+<body style="height: 600px">
     <form id="form1" runat="server">
-        <div style="height: 407px">
+        <div style="height: 600px">
+            <asp:Label ID="Label1" runat="server" Text="Flight Reservation Service" Font-Italic="True" Font-Names="Calibri" Height="60px"></asp:Label>
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Welcome to CharterResor, Your Ultimate Flight Companion!"></asp:Label>
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="From:"></asp:Label>
-            <asp:DropDownList ID="from" runat="server">
+            <asp:Label ID="Label3" runat="server" Text="From:" Font-Names="Calibri" Height="30px" Width="65px"></asp:Label>
+            <asp:DropDownList ID="from" runat="server" Height="30px" Width="120px" AutoPostBack="True">
                 <asp:ListItem>STO</asp:ListItem>
                 <asp:ListItem>CPH</asp:ListItem>
                 <asp:ListItem>CDG</asp:ListItem>
                 <asp:ListItem>LHR</asp:ListItem>
                 <asp:ListItem>FRA</asp:ListItem>
             </asp:DropDownList>
-            <br />
-            <asp:Label ID="Label5" runat="server" Text="To:"></asp:Label>
-            <asp:DropDownList ID="to" runat="server">
+            &nbsp
+            <asp:Label ID="Label5" runat="server" Text="To:" Font-Names="Calibri" Height="30px" Width="35px"></asp:Label>
+            <asp:DropDownList ID="to" runat="server" Height="30px" Width="120px" AutoPostBack="True">
                 <asp:ListItem>STO</asp:ListItem>
                 <asp:ListItem>CPH</asp:ListItem>
                 <asp:ListItem>CDG</asp:ListItem>
                 <asp:ListItem>LHR</asp:ListItem>
                 <asp:ListItem>FRA</asp:ListItem>
             </asp:DropDownList>
-            <br />
-            <asp:Label ID="Label6" runat="server" Text="Month:"></asp:Label>
-            <asp:DropDownList ID="month" runat="server">
+            &nbsp
+            <asp:Label ID="Label6" runat="server" Text="Month:" Font-Names="Calibri" Height="30px" Width="65px"></asp:Label>
+            <asp:DropDownList ID="month" runat="server" Height="30px" Width="100px" AutoPostBack="True">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
                 <asp:ListItem>3</asp:ListItem>
@@ -46,31 +45,46 @@
                 <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList>
             <br />
-            <asp:Label ID="Label7" runat="server" Text="Number of Passengers:"></asp:Label>
-            <br />
-            <asp:Label ID="Label8" runat="server" Text="Infants(&lt;2):"></asp:Label>
-            <asp:TextBox ID="infant" runat="server" style="margin-bottom: 0px">0</asp:TextBox>
-            <br />
-            <asp:Label ID="Label2" runat="server" Text="Children:"></asp:Label>
-            <asp:TextBox ID="child" runat="server">0</asp:TextBox>
-            <br />
-            <asp:Label ID="Label4" runat="server" Text="Adults:"></asp:Label>
-            <asp:TextBox ID="adult" runat="server">0</asp:TextBox>
-            <br />
-            <asp:Label ID="Label9" runat="server" Text="Seniors(&gt;65):"></asp:Label>
-            <asp:TextBox ID="senior" runat="server">0</asp:TextBox>
+            <asp:Label ID="Label9" runat="server" Text="Flight Number:" Font-Names="Calibri" Height="30px" Width="130px"></asp:Label>
+            <asp:ListBox ID="flight" runat="server" DataSourceID="SqlDataSource1" DataTextField="Flight_number" DataValueField="Flight_number" Height="32px" Width="140px" AutoPostBack="True"></asp:ListBox>
             <br />
             <br />
-            <asp:Button ID="BtnPost" runat="server" Text="Get your price" Width="182px" Height="45px" OnClick="BtnPost_Click" style="margin-top: 0px"></asp:Button>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="Flight_number" HeaderText="Flight_number" SortExpression="Flight_number" />
+                    <asp:BoundField DataField="Carrier" HeaderText="Carrier" SortExpression="Carrier" />
+                    <asp:BoundField DataField="Departure_airport" HeaderText="Departure_airport" SortExpression="Departure_airport" />
+                    <asp:BoundField DataField="Arrival_airport" HeaderText="Arrival_airport" SortExpression="Arrival_airport" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:lichdatabaseConnectionString %>" SelectCommand="SELECT [Flight_number], [Carrier], [Departure_airport], [Arrival_airport] FROM [Routes] WHERE (([Departure_airport] = @Departure_airport) AND ([Arrival_airport] = @Arrival_airport))">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="from" Name="Departure_airport" PropertyName="SelectedValue" Type="String" />
+                    <asp:ControlParameter ControlID="to" Name="Arrival_airport" PropertyName="SelectedValue" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <br />
-            &nbsp;<asp:Label ID="Label10" runat="server" Text="Current price for the above passenger is: "></asp:Label>
-            <asp:Textbox ID="TxtMyName" runat="server" Text="" Width="186px" BackColor="#FFFFCC" Height="33px"></asp:Textbox>
-            &nbsp;<asp:Label ID="Label11" runat="server" Text="SEK"></asp:Label>
+            <br />
+            <asp:Label ID="Label7" runat="server" Text="Passenger Information:" Font-Names="Calibri" Height="30px"></asp:Label>
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp&nbsp&nbsp
+            <asp:Label ID="label31" runat="server" Text="Infants(<2):" Font-Names="Calibri" Height="30px" Width="120px"></asp:Label>
+            <asp:TextBox ID="infant" runat="server" style="margin-bottom: 0px" Height="30px" Width="80px" AutoPostBack="True">0</asp:TextBox>
+            &nbsp; <asp:Label ID="label32" runat="server" Text="Children:" Font-Names="Calibri" Height="30px" Width="120px"></asp:Label>
+            <asp:TextBox ID="child" runat="server" style="margin-bottom: 0px" Height="30px" Width="80px" AutoPostBack="True">0</asp:TextBox>
+            &nbsp;
+            <br /> <asp:Label ID="label33" runat="server" Text="Adults:" Font-Names="Calibri" Height="30px" Width="120px"></asp:Label>
+            <asp:TextBox ID="adult" runat="server" style="margin-bottom: 0px" Height="30px" Width="80px" AutoPostBack="True">0</asp:TextBox>
+            &nbsp; <asp:Label ID="label34" runat="server" Text="Seniors(>65):" Font-Names="Calibri" Height="30px" Width="120px"></asp:Label>
+           
+            <asp:TextBox ID="senior" runat="server" style="margin-bottom: 0px" Height="30px" Width="80px" AutoPostBack="True">0</asp:TextBox>
             <br />
-            
+            <br />
+            <br />
+            <br />
+            <asp:Button ID="btnContinue" runat="server" Text="Continue" onclick="BtnContinue_Click" Width="120px" Height="50px" Font-Bold="True" Font-Names="Calibri" Font-Size="Large"></asp:Button>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" onclick="BtnCancel_Click" Width="120px" Height="50px" Font-Bold="True" Font-Names="Calibri" Font-Size="Large"></asp:Button>
             </div>
     </form>
 </body>

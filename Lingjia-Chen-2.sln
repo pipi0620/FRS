@@ -1,19 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "lab2", "lab2\lab2.ccproj", "{65525B6F-8AE4-4FA1-A383-C8C793FBC724}"
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Lingjia-Chen-2", "Lingjia-Chen-2\Lingjia-Chen-2.ccproj", "{65525B6F-8AE4-4FA1-A383-C8C793FBC724}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRole1", "WebRole1\WebRole1.csproj", "{1E7895AE-F5B7-45C3-99FA-3CF154FBCF8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRS", "FRS\FRS.csproj", "{F2A062E9-221B-46A2-810D-752686013AEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS", "HRS\HRS.csproj", "{1D225E77-58D0-4CE3-997F-B4E9C5D03DE1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRS", "CRS\CRS.csproj", "{552E7025-9B8D-482B-B8B4-3B7911283DAE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS", "PS\PS.csproj", "{A453E303-A566-4B26-BACF-DBB4002B1B35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +33,6 @@ Global
 		{1D225E77-58D0-4CE3-997F-B4E9C5D03DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D225E77-58D0-4CE3-997F-B4E9C5D03DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D225E77-58D0-4CE3-997F-B4E9C5D03DE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{552E7025-9B8D-482B-B8B4-3B7911283DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{552E7025-9B8D-482B-B8B4-3B7911283DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{552E7025-9B8D-482B-B8B4-3B7911283DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{552E7025-9B8D-482B-B8B4-3B7911283DAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A453E303-A566-4B26-BACF-DBB4002B1B35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A453E303-A566-4B26-BACF-DBB4002B1B35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A453E303-A566-4B26-BACF-DBB4002B1B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A453E303-A566-4B26-BACF-DBB4002B1B35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

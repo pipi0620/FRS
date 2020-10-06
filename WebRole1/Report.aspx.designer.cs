@@ -7,11 +7,13 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebRole1 {
-    
-    
-    public partial class HRS1 {
-        
+namespace WebRole1
+{
+
+
+    public partial class Report
+    {
+
         /// <summary>
         /// form1 控件。
         /// </summary>
@@ -20,113 +22,95 @@ namespace WebRole1 {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
-        /// Label1 控件。
+        /// CardList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
+        protected global::System.Web.UI.WebControls.Label CardList;
+
         /// <summary>
-        /// TxtNumTraveller 控件。
+        /// Transactions 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumTraveller;
-        
+        protected global::System.Web.UI.WebControls.Label Transactions;
+
         /// <summary>
-        /// Label3 控件。
+        /// GridView2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
+        protected global::System.Web.UI.WebControls.GridView GridView2;
+
         /// <summary>
-        /// TxtNumNight 控件。
+        /// SqlDataSource2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumNight;
-        
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+
         /// <summary>
-        /// Label2 控件。
+        /// GridView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+
         /// <summary>
-        /// TxtNumSenior 控件。
+        /// SqlDataSource1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNumSenior;
-        
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
         /// <summary>
-        /// Label4 控件。
+        /// GridView4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
+        protected global::System.Web.UI.WebControls.GridView GridView4;
+
         /// <summary>
-        /// TxtGuestName 控件。
+        /// SqlDataSource4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtGuestName;
-        
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+
         /// <summary>
-        /// Label5 控件。
+        /// GridView3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
+        protected global::System.Web.UI.WebControls.GridView GridView3;
+
         /// <summary>
-        /// RadioButtonList1 控件。
+        /// SqlDataSource3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
-        
-        /// <summary>
-        /// btnContinue 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContinue;
-        
-        /// <summary>
-        /// btnCancel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
     }
 }

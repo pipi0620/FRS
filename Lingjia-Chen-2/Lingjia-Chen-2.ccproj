@@ -11,7 +11,7 @@
     <RootNamespace>lab2</RootNamespace>
     <AssemblyName>lab2</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>lab2</Name>
+    <Name>Lingjia-Chen-2</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,14 +37,6 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CRS\CRS.csproj">
-      <Name>CRS</Name>
-      <Project>{552e7025-9b8d-482b-b8b4-3b7911283dae}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>CRS</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
     <ProjectReference Include="..\FRS\FRS.csproj">
       <Name>FRS</Name>
       <Project>{f2a062e9-221b-46a2-810d-752686013aeb}</Project>
@@ -59,14 +51,6 @@
       <Private>True</Private>
       <RoleType>Worker</RoleType>
       <RoleName>HRS</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-    <ProjectReference Include="..\PS\PS.csproj">
-      <Name>PS</Name>
-      <Project>{a453e303-a566-4b26-bacf-dbb4002b1b35}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>PS</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
     <ProjectReference Include="..\WebRole1\WebRole1.csproj">

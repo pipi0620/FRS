@@ -23,12 +23,10 @@ namespace FRS
         {
             return d * Math.PI / 180.0;
         }
-        private string accountName = "huifengstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
-        private string accountKey = "QSetwy+LxLwziFXywuZU+dOOJIp8oSc4ye8WrY6MiYlQ188A8k8qlesPHsIwaxw6/FXBvwpb2hmIrPwRIdhcvw==";     // zPie75n + Wcbwr19brs3LNC05ldiv4sDAPLB6ib4 / eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw ==";     // zPie75n+Wcbwr19bferrs3LNCdiv4sDAPsdLB6ib4/eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw";   // Write your Azure storage account key here "YOUR_ACCOUNT_KEY";     
-        private StorageCredentials creds;
-        private CloudStorageAccount storageAccount;
-        private CloudQueueClient queueClient;
-        private CloudQueue inqueue,que1,que2, outqueue;
+        private string accountName = "lichstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
+        private string accountKey = "sg8SddKgyVvJI55jv2PiP61w54QZSs1NcihujjRfQK+SCPu4xt80wyH41ovnk6D/D8A/35p89HdBgDfQaxuGWw==";     // zPie75n + Wcbwr19brs3LNC05ldiv4sDAPLB6ib4 / eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw ==";     // zPie75n+Wcbwr19bferrs3LNCdiv4sDAPsdLB6ib4/eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw";   // Write your Azure storage account key here "YOUR_ACCOUNT_KEY";     
+        private CloudQueue inqueue, outqueue;
+
         private CloudQueueMessage inMessage, outMessage;
 
         //the following method is called at the start of the worker role to get instances of incoming and outgoing queues 
@@ -38,24 +36,20 @@ namespace FRS
             //  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //      CloudConfigurationManager.GetSetting("Setting2"));
 
-            creds = new StorageCredentials(accountName, accountKey);
-            storageAccount = new CloudStorageAccount(creds, useHttps: true);
+            StorageCredentials creds = new StorageCredentials(accountName, accountKey);
+            CloudStorageAccount storageAccount = new CloudStorageAccount(creds, useHttps: true);
 
             // Create the queue client
-            queueClient = storageAccount.CreateCloudQueueClient();
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-            que1 = queueClient.GetQueueReference("hrswebqueque");
-            que1.CreateIfNotExists();
-            que2 = queueClient.GetQueueReference("crswebqueque");
-            que2.CreateIfNotExists();
             // Retrieve a reference to a queue
-            inqueue = queueClient.GetQueueReference("frsworkerqueue");
+             inqueue = queueClient.GetQueueReference("frsworkerqueue");
 
             // Create the queue if it doesn't already exist
             inqueue.CreateIfNotExists();
 
             // Retrieve a reference to a queue
-            outqueue = queueClient.GetQueueReference("frswebqueue");
+             outqueue = queueClient.GetQueueReference("frswebqueue");
 
             // Create the queue if it doesn't already exist
             outqueue.CreateIfNotExists();
@@ -128,7 +122,8 @@ namespace FRS
                 if (inMessage != null)
                 {
                     Console.WriteLine("Retrieved message with content '{0}'", inMessage.AsString);  //Show the received message in the development console
-
+                   
+                    //STO*CPH*1*0*0*3*0*
                     //convert the message to string, parse it, perform your business logic here, etc.
                     string s = inMessage.AsString;
                     string[] str = s.Split('*');
@@ -153,22 +148,12 @@ namespace FRS
                     if (str[2] == "1" || str[2] == "12")
                         sum *= 15;
                     else sum *= 10;
-                    int allsum = 0;
-                    String s1 = que1.GetMessage().AsString;
-                    String s2 = que2.GetMessage().AsString;
-                    int sum1 = 0;
-                    int sum2 = 0;
-                    if (s1 != null)
-                        sum1 += int.Parse(s1);
-                    if (s2 != null)
-                        sum2 += int.Parse(s2);
-                    allsum = sum + sum1 + sum2;
-                    string bigs = allsum.ToString();      //This is the message (response) the worker sends to the web role
+                    string bigs = sum.ToString();      //This is the message (response) the worker sends to the web role
+                    Debug.WriteLine("Message '" + bigs + "'stored in Queue");
                     Trace.TraceInformation("***** Worker Received " + sum.ToString());
 
                     // Async delete the message
                     await inqueue.DeleteMessageAsync(inMessage);
-
                     // Create a message and add it to the queue.
                     outMessage = new CloudQueueMessage(bigs);
                     outqueue.AddMessage(outMessage);

@@ -7,11 +7,13 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebRole1 {
-    
-    
-    public partial class Default {
-        
+namespace WebRole1
+{
+
+
+    public partial class Default
+    {
+
         /// <summary>
         /// form1 控件。
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebRole1 {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// Label1 控件。
         /// </summary>
@@ -29,16 +31,16 @@ namespace WebRole1 {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
-        /// service1 控件。
+        /// checkbox 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList service1;
-        
+        protected global::System.Web.UI.WebControls.CheckBoxList checkbox;
+
         /// <summary>
         /// start 控件。
         /// </summary>

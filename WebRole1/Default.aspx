@@ -8,23 +8,24 @@
     <title></title>
 </head>
 <body style="height: 435px">
-    <asp:Label runat="server" Text="Welcome to our Travel Reservation System"></asp:Label>
+    <asp:Label runat="server" Text="Welcome to our Travel Reservation System" Font-Italic="True" Font-Names="Calibri" Height="60px"></asp:Label>
     <form id="form1" runat="server">
         <div style="height: 407px">
-            <asp:Label ID="Label1" runat="server" Text="Please select the extra service you need: "></asp:Label>      
+            <asp:Label ID="Label1" runat="server" Text="Please select the additional service you need: " Font-Names="Calibri" Font-Size="Medium"></asp:Label>      
             <br />
-            <asp:CheckBoxList ID="service1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+            <br />
+            <asp:CheckBoxList ID="checkbox" runat="server" RepeatDirection="Vertical" RepeatLayout="Flow" Font-Names="Calibri" BackColor="#FFCCCC">
                 <asp:ListItem>Hotel Reservation Service</asp:ListItem>
-                <asp:ListItem>Car Rental Service</asp:ListItem>
             </asp:CheckBoxList>
-
-             
             <br />
             <br />
-            <asp:Button ID="start" runat="server" Text="start"  OnClick="BtnPost_Click"/>
+            <br />
+            <br />
+            <asp:Button ID="start" runat="server" Text="start"  OnClick="BtnPost_Click" Font-Bold="True" Font-Names="Calibri" Height="50px" Width="120px" Font-Size="Large"/>
 
              
             </div>
     </form>
 </body>   
 </html>
+

@@ -17,12 +17,9 @@ namespace WebRole1
 {
     public partial class HRS2 : System.Web.UI.Page
     {
-        private string accountName = "huifengstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
-        private string accountKey = "QSetwy+LxLwziFXywuZU+dOOJIp8oSc4ye8WrY6MiYlQ188A8k8qlesPHsIwaxw6/FXBvwpb2hmIrPwRIdhcvw==";
-        protected void BtnCancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Default.aspx");
-        }
+        private string accountName = "lichstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
+        private string accountKey = "sg8SddKgyVvJI55jv2PiP61w54QZSs1NcihujjRfQK+SCPu4xt80wyH41ovnk6D/D8A/35p89HdBgDfQaxuGWw==";
+
         protected void BtnContinue_Click(object sender, EventArgs e)
         {
             /*      USE THIS CODE INSTEAD OF YOU WANT TO USE YOUR LOCAL STORAGE EMULATOR.  YOU GET CONNECTION STRING AND SETTINGS FROM THE web.config FILE
@@ -70,18 +67,19 @@ namespace WebRole1
                 Debug.WriteLine("Message '" + message + "'stored in Queue");
             }
             catch (Exception ee) {; }
+
             Response.Redirect("FRS.aspx");
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void BtnCancel_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Default.aspx");
         }
-
 
     }
 }

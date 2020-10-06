@@ -19,11 +19,9 @@ namespace HRS
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
-        private string accountName = "huifengstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
-        private string accountKey = "QSetwy+LxLwziFXywuZU+dOOJIp8oSc4ye8WrY6MiYlQ188A8k8qlesPHsIwaxw6/FXBvwpb2hmIrPwRIdhcvw==";
-        private StorageCredentials creds;
-        private CloudStorageAccount storageAccount;
-        private CloudQueueClient queueClient;
+        private string accountName = "lichstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
+        private string accountKey = "sg8SddKgyVvJI55jv2PiP61w54QZSs1NcihujjRfQK+SCPu4xt80wyH41ovnk6D/D8A/35p89HdBgDfQaxuGWw==";     // zPie75n + Wcbwr19brs3LNC05ldiv4sDAPLB6ib4 / eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw ==";     // zPie75n+Wcbwr19bferrs3LNCdiv4sDAPsdLB6ib4/eVLsYBc20iSULTvRfVlmI2MXBC2SOf1MCaDHv2cihuu4fw";   // Write your Azure storage account key here "YOUR_ACCOUNT_KEY";     
+
         private CloudQueue inqueue, outqueue;
         private CloudQueueMessage inMessage, outMessage;
 
@@ -34,11 +32,11 @@ namespace HRS
             //  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             //      CloudConfigurationManager.GetSetting("Setting2"));
 
-            creds = new StorageCredentials(accountName, accountKey);
-            storageAccount = new CloudStorageAccount(creds, useHttps: true);
+            StorageCredentials creds = new StorageCredentials(accountName, accountKey);
+            CloudStorageAccount storageAccount = new CloudStorageAccount(creds, useHttps: true);
 
             // Create the queue client
-            queueClient = storageAccount.CreateCloudQueueClient();
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
             // Retrieve a reference to a queue
             inqueue = queueClient.GetQueueReference("hrsworkerqueue");
@@ -112,19 +110,18 @@ namespace HRS
                     int numtraveller = int.Parse(str[0]);
                     int numnights = int.Parse(str[1]);
                     int numsenior = int.Parse(str[2]);
-                    int type = int.Parse(str[4]);
                     int price = 0;
-                    if (str[4] == "single")
+                    if (str[4] == "Single")
                     {
-                        price = (numtraveller - numsenior) * 600 + numsenior * 300;
+                        price = ((numtraveller - numsenior) * 600 + numsenior * 300) * numnights;
                     }
                     else
                     {
-                        price = (numtraveller - numsenior) * 450 + numsenior * 225;
+                        price = ((numtraveller - numsenior) * 450 + numsenior * 225) * numnights;
                     }
 
-                    string bigs = "Response = " + s.ToUpper();      //This is the message (response) the worker sends to the web role
-                    Trace.TraceInformation("***** Worker Received " + s);
+                    string bigs = price.ToString();      //This is the message (response) the worker sends to the web role
+                    Trace.TraceInformation("***** Worker Received " + bigs);
 
                     // Async delete the message
                     await inqueue.DeleteMessageAsync(inMessage);

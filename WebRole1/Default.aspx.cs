@@ -21,9 +21,7 @@ namespace WebRole1
         {
 
         }
-        private string accountName = "huifengstorage";      // YOUR AZURE STORAGE ACCOUNT_NAME";             
-        private string accountKey = "QSetwy+LxLwziFXywuZU+dOOJIp8oSc4ye8WrY6MiYlQ188A8k8qlesPHsIwaxw6/FXBvwpb2hmIrPwRIdhcvw==";
-        protected void BtnPost_Click(object sender, EventArgs e)
+         protected void BtnPost_Click(object sender, EventArgs e)
         {
             /*      USE THIS CODE INSTEAD OF YOU WANT TO USE YOUR LOCAL STORAGE EMULATOR.  YOU GET CONNECTION STRING AND SETTINGS FROM THE web.config FILE
                         // Retrieve storage account from connection string
@@ -36,20 +34,16 @@ namespace WebRole1
             */
 
             //Note: the key above is not a real key.  Do not try it!
-             if(service1.Items[0].Selected&&service1.Items[1].Selected)
-             {
-                 Response.Redirect("HRS1.aspx");
-             }
-            if (service1.Items[0].Selected && !service1.Items[1].Selected)
+   
+            if (checkbox.Items[0].Selected)
                 Response.Redirect("HRS2.aspx");
-            if (!service1.Items[0].Selected && service1.Items[1].Selected)
-                Response.Redirect("CRS.aspx");
-            if (!service1.Items[0].Selected && !service1.Items[1].Selected)
-             {
-                 Response.Redirect("FRS.aspx");
-             }
-             
+          
+            if (!checkbox.Items[0].Selected)
+            {
+                Response.Redirect("FRS.aspx");
+            }
+
         }
-        
+
     }
 }
